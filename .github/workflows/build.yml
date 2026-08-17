@@ -33,8 +33,8 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build debug APK
-        run: ./gradlew assembleDebug --stacktrace
+      - name: Build debug APK (foss flavor)
+        run: ./gradlew assembleFossDebug --stacktrace
 
       - name: Find APK
         run: find . -name "*.apk"
@@ -43,4 +43,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: RikkY-Caller-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/foss/debug/*.apk
