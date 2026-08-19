@@ -68,7 +68,6 @@
         <package android:name="com.goodwy.keyboard" />
         <package android:name="com.goodwy.calendar" />
 
-        <!-- Required for loading contact accounts -->
         <intent>
             <action android:name="android.accounts.AccountAuthenticator" />
         </intent>
@@ -196,8 +195,6 @@
             </intent-filter>
         </activity>
 
-        <!--launchMode="singleInstance" - incoming call is not displayed correctly on the locked screen-->
-        <!--android:showWhenLocked="true" - do not add-->
         <activity
             android:name=".activities.CallActivity"
             android:directBootAware="true"
@@ -210,6 +207,13 @@
             android:screenOrientation="portrait"
             android:showOnLockScreen="true"
             android:turnScreenOn="true" />
+
+        <activity
+            android:name=".activities.OverlayCallActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:showOnLockScreen="true"
+            android:theme="@style/Theme.Transparent" />
 
         <activity
             android:name=".activities.CallHistoryActivity"
@@ -227,7 +231,6 @@
             android:screenOrientation="nosensor"
             android:parentActivityName=".activities.MainActivity"
             android:windowSoftInputMode="stateHidden">
-            <!--android:label="@string/dialpad"-->
 
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
@@ -276,21 +279,6 @@
                 <data android:scheme="tel" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".services.CallService"
-            android:directBootAware="true"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.BIND_INCALL_SERVICE">
-            <meta-data
-                android:name="android.telecom.IN_CALL_SERVICE_UI"
-                android:value="true" />
-
-            <intent-filter>
-                <action android:name="android.telecom.InCallService" />
-            </intent-filter>
-        </service>
 
         <service
             android:name=".services.SimpleCallScreeningService"
@@ -350,157 +338,6 @@
             </intent-filter>
         </activity-alias>
 
-        <activity-alias
-            android:name=".activities.SplashActivity.One"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_one"
-            android:roundIcon="@mipmap/ic_launcher_one"
-            android:targetActivity=".activities.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Two"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_two"
-            android:roundIcon="@mipmap/ic_launcher_two"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Three"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_three"
-            android:roundIcon="@mipmap/ic_launcher_three"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Four"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_four"
-            android:roundIcon="@mipmap/ic_launcher_four"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Five"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_five"
-            android:roundIcon="@mipmap/ic_launcher_five"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Six"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_six"
-            android:roundIcon="@mipmap/ic_launcher_six"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Seven"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_seven"
-            android:roundIcon="@mipmap/ic_launcher_seven"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Eight"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_eight"
-            android:roundIcon="@mipmap/ic_launcher_eight"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Nine"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_nine"
-            android:roundIcon="@mipmap/ic_launcher_nine"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Ten"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_ten"
-            android:roundIcon="@mipmap/ic_launcher_ten"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <activity-alias
-            android:name=".activities.SplashActivity.Eleven"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_eleven"
-            android:roundIcon="@mipmap/ic_launcher_eleven"
-            android:targetActivity=".activities.SplashActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
     </application>
+
 </manifest>
