@@ -1,5 +1,6 @@
 package com.goodwy.dialer.services
 
+import android.content.Intent
 import android.telecom.Call
 import android.telecom.CallScreeningService
 import com.goodwy.commons.extensions.baseConfig
@@ -10,6 +11,7 @@ import com.goodwy.commons.helpers.BLOCKING_TYPE_SILENCE
 import com.goodwy.commons.helpers.ContactLookupResult
 import com.goodwy.commons.helpers.SimpleContactsHelper
 import com.goodwy.commons.helpers.isQPlus
+import com.goodwy.dialer.activities.OverlayCallActivity
 import com.goodwy.dialer.extensions.config
 import com.goodwy.dialer.models.Events
 import org.greenrobot.eventbus.EventBus
@@ -18,8 +20,12 @@ class SimpleCallScreeningService : CallScreeningService() {
 
     override fun onScreenCall(callDetails: Call.Details) {
         val number = callDetails.handle?.schemeSpecificPart
+
+        if (callDetails.callDirection == Call.Details.DIRECTION_INCOMING) {
+            showOverlay(number)
+        }
+
         when {
-            //To speed things up, we will not check any conditions if blocking is disabled
             !baseConfig.blockingEnabled -> {
                 respondToCall(callDetails, isBlocked = false)
             }
@@ -56,6 +62,16 @@ class SimpleCallScreeningService : CallScreeningService() {
         }
     }
 
+    private fun showOverlay(number: String?) {
+        val intent = Intent(this, OverlayCallActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra("caller_number", number)
+        }
+        startActivity(intent)
+    }
+
     private fun respondToCall(callDetails: Call.Details, isBlocked: Boolean) {
         val response = if (isBlocked) {
             if (isQPlus() && baseConfig.blockingType == BLOCKING_TYPE_SILENCE) {
@@ -66,7 +82,7 @@ class SimpleCallScreeningService : CallScreeningService() {
                 CallResponse.Builder()
                     .setDisallowCall(true)
                     .setRejectCall(baseConfig.blockingType == BLOCKING_TYPE_REJECT)
-                    .setSkipCallLog(false) // not work https://issuetracker.google.com/issues/130081372
+                    .setSkipCallLog(false)
                     .setSkipNotification(true)
                     .build()
             }
@@ -77,8 +93,6 @@ class SimpleCallScreeningService : CallScreeningService() {
 
         respondToCall(callDetails, response)
 
-        // setSkipCallLog() does not work on many versions of Android, so let's update the list after blocking the call
-        // https://issuetracker.google.com/issues/130081372
         if (isBlocked) EventBus.getDefault().post(Events.RefreshCallLog)
     }
 }
