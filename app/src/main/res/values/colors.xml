@@ -3,7 +3,10 @@
     <color name="ripple_foreground">#33FFFFFF</color>
     <color name="green_call">#FF67CE67</color>
     <color name="red_call">#FFEB5545</color>
-    <color name="swipe_purple">#FF5E5CE6</color>
-    <color name="default_call_background">#FF454545</color>
+    <color name="swipe_purple">#FF0E6DF1</color>
+    <color name="default_call_background">#FF0E6DF1</color>
     <color name="notification_icon">@color/dark_grey</color>
+
+    <color name="truecaller_blue_top">#FF0E6DF1</color>
+    <color name="truecaller_blue_bottom">#FF0E4BA6</color>
 </resources>
