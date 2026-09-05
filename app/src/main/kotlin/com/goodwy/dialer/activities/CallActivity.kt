@@ -160,7 +160,7 @@ class CallActivity : SimpleActivity() {
                     callSwapLabel, callMergeLabel, callToggleLabel, callAddContactLabel,
                     dialpadClose, callEndLabel, callAcceptAndDecline
                 ).forEach {
-                    it.setTextColor(Color.WHITE)
+                    it?.setTextColor(Color.WHITE)
                 }
 
                 arrayOf(
@@ -1412,7 +1412,7 @@ class CallActivity : SimpleActivity() {
         if (hasCallOnHold) {
             getCallContact(applicationContext, call) { contact ->
                 runOnUiThread {
-                    binding.onHoldCallerName.text = getContactNameOrNumber(contact)
+                    binding.onHoldCallerName?.text = getContactNameOrNumber(contact)
                 }
             }
 
