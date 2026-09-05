@@ -93,14 +93,14 @@
 
     <ImageView
         android:id="@+id/callerAvatar"
-        android:layout_width="@dimen/caller_avatar_max_size"
-        android:layout_height="@dimen/caller_avatar_max_size"
+        android:id="@+id/callerAvatar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="90dp"
         android:contentDescription="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="@dimen/vertical_bias_avatar"
         tools:src="@drawable/placeholder_contact"/>
 
     <com.goodwy.commons.views.MyTextView
