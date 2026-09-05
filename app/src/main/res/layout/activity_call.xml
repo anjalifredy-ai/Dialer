@@ -6,7 +6,7 @@
     android:id="@+id/call_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_call_background">
+    android:background="@drawable/bg_call_gradient">
 
     <!-- default = normal, small - for small screens -->
     <androidx.constraintlayout.widget.ConstraintLayout
