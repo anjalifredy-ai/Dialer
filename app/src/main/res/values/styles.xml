@@ -1,6 +1,9 @@
 <resources>
 
-    <style name="AppTheme" parent="AppTheme.Base" />
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="android:windowBackground">@color/echo_black_bg</item>
+        <item name="android:colorBackground">@color/echo_black_bg</item>
+    </style>
 
     <style name="DialpadNumberStyle">
         <item name="android:includeFontPadding">false</item>
