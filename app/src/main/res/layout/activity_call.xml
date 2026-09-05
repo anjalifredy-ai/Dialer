@@ -34,6 +34,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_phone_vector"/>
 
+        
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <com.goodwy.commons.views.MyTextView
         android:id="@+id/echoCallBrandLabel"
         android:layout_width="wrap_content"
@@ -47,9 +49,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+   
+    
     <ImageView
         android:id="@+id/callInfo"
         android:layout_width="32dp"
