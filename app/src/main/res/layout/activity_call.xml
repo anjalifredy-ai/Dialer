@@ -34,9 +34,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_phone_vector"/>
 
-        
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <com.goodwy.commons.views.MyTextView
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.goodwy.commons.views.MyTextView
         android:id="@+id/echoCallBrandLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,8 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-   
-    
+
     <ImageView
         android:id="@+id/callInfo"
         android:layout_width="32dp"
@@ -241,7 +240,7 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         tools:visibility="gone">
-       
+
         <View
             android:id="@+id/callControlsBlackBg"
             android:layout_width="0dp"
@@ -250,7 +249,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
-        
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/controlsSingleCall"
             android:layout_width="wrap_content"
@@ -271,7 +270,7 @@
             android:layout_width="@dimen/call_button_size"
             android:layout_height="@dimen/call_button_size"
             android:layout_marginEnd="@dimen/margin_button_horizontal"
-            android:background="@drawable/pulsing_background_ripple"
+            android:background="@drawable/bg_call_button_glass"
             android:contentDescription="@string/turn_microphone_off"
             android:padding="@dimen/bigger_margin"
             android:src="@drawable/ic_microphone_vector"
@@ -299,7 +298,7 @@
             android:id="@+id/callDialpadHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/pulsing_background_ripple"
+            android:background="@drawable/bg_call_button_glass"
             android:contentDescription="@string/show_dialpad"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -338,7 +337,7 @@
             android:layout_width="@dimen/call_button_size"
             android:layout_height="@dimen/call_button_size"
             android:layout_marginStart="@dimen/margin_button_horizontal"
-            android:background="@drawable/pulsing_background_ripple"
+            android:background="@drawable/bg_call_button_glass"
             android:contentDescription="@string/turn_speaker_on"
             android:padding="@dimen/bigger_margin"
             android:src="@drawable/ic_volume_up_vector"
@@ -602,7 +601,7 @@
                     android:id="@+id/dialpad_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dialpad_button_size"
+                    android:layout_marginTop="@dimen/dialpad_input_number_size"
                     android:layout_marginEnd="@dimen/dialpad_button_size"
                     android:gravity="center"
                     android:inputType="phone"
