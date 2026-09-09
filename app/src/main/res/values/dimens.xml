@@ -49,7 +49,7 @@
     <dimen name="vertical_bias_avatar_small">0.10</dimen>
     <dimen name="vertical_bias_button">0.5</dimen>
     <dimen name="vertical_bias_call_end">0.90</dimen>
-    <dimen name="margin_button_horizontal">220dp</dimen>
+    <dimen name="margin_button_horizontal">90dp</dimen>
     <dimen name="call_dialpad_height">400dp</dimen>
 
     <!--dialpad button-->
